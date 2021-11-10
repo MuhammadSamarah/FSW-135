@@ -5,17 +5,15 @@ const mongoose = require('mongoose')
 app.use(express.json()) 
 app.use(morgan('dev')) 
 
-mongoose.connect('mongodb://localhost:27017/eStore',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  },
-  ()=> console.log("Connected to the DB")
-)
 
-app.use("/eStore", require("./routes/inventory.js"))
+main().catch(err => console.log(err));
+async function main() {
+    await mongoose.connect('mongodb://localhost:27017/inventory');
+    console.log("Connected to the DB")
+}
+
+
+app.use("/inventory", require("./routes/inventory.js"))
 
 app.use((err, req, res, next) => {
   console.log(err)
