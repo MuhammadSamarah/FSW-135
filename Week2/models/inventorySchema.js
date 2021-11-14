@@ -1,11 +1,11 @@
 const mongoose = require ('mongoose')
 const Schema = mongoose.Schema
 const InventorySchema = new Schema({
-    name: { 
+    Name: { 
         type: String,
         required: true
     },
-    brand: {
+    Brand: {
         type: String,
         required: true
     }
