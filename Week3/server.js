@@ -6,16 +6,11 @@ const mongoose = require('mongoose')
 app.use(express.json()) 
 app.use(morgan('dev')) 
 
-//Conect DB
-mongoose.connect('mongodb+srv://voter-1:Kibeth13!@cluster0.pvl01.mongodb.net/RockTheVote',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  },
-  ()=> console.log("Connected to the DB")
-)
+main().catch(err => console.log(err));
+async function main() {
+    await mongoose.connect('mongodb://localhost:27017/RockTheVote');
+    console.log("Connected to the DB")
+}
 
 app.use("/auth", require("./routes/authRouter.js"));
 app.use('/issue', require("./routes/issueRouter"));
