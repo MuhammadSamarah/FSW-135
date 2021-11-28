@@ -1,0 +1,34 @@
+*{
+    background-color: rgb(179, 214, 245);
+}
+.NavBar{
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    margin-top: 50px;
+}
+#New{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    align-items: center;
+}
+#New input{
+    margin-bottom: 25px;
+    font-size: large;
+}
+#stuff{
+    text-align: center;
+}
+#please{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+#clicky:hover{
+    text-decoration: underline;
+    color: rgb(53, 40, 43);
+    font-weight: bold;
+}
